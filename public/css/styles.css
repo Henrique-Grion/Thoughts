@@ -1,0 +1,236 @@
+:root {
+    --bg-color: #f3f3f3;
+    --text-color: #222;
+    --bg-color2: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #222;
+        --bg-color2: #000;
+        --text-color: #fff;
+    }
+}
+
+* {
+    font-family: Helvetica;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    min-height: 70vh;
+    padding: 2em;
+}
+
+.footer {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #f6982d
+}
+
+.footer span {
+    font-weight: bold;
+    color: #f6982d;
+}
+
+.nav-logo img {
+    height: 40px;
+}
+
+.nav {
+    padding: 1.2em 1.4em;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-color2);
+    box-shadow: 0 0 6px #f6982d;
+    border-bottom: 1px solid #f6982d;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1em;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav ul li a:hover {
+    color: #f6982d;
+}
+
+.auth-container {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container h2 {
+    margin-bottom: 1em;
+    border-left: 4px solid #f6982d;
+    padding: .3em;
+    width: 100px;
+}
+
+.auth-container a {
+    color: #f6982d;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.form-control label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.form-control input,
+.form-control textarea {
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #f6982d;
+    background-color: transparent;
+    color: inherit;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+
+    box-shadow: 0px 0px 6px #ff8800;
+}
+
+.sys-btn {
+    background-color: transparent;
+    color: #f6982d;
+    border: 2px solid #f6982d;
+    padding: 0.5em 1.2em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sys-btn:hover {
+    background-color: #f6982d;
+    color: var(--text-color)
+}
+
+.message {
+    padding: 1em;
+    top: 50px;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    border-radius: 5px;
+    text-align: center;
+    width: 60%;
+    cursor: default;
+}
+
+.message.info {
+    color: #004085;
+    background-color: #cce5ff;
+    border: 1px solid #b8daff;
+}
+
+.message.error {
+    color: #b10000;
+    background-color: #ff816d;
+    border: #fd5b42;
+}
+
+.message.success {
+    color: #0d4100;
+    background-color: #67ab56;
+    border: #41892f;
+}
+
+::placeholder {
+    font-style: italic;
+}
+
+.thought-form-container a {
+    color: #f6982d;
+}
+
+.thought-form-container a:hover {
+    color: var(--text-color);
+}
+
+.thought-form-container h1 {
+    margin: 1em 0;
+    border-left: 4px solid #f6982d;
+    padding: .3em;
+}
+
+.thought-form-container form {
+    margin-top: 1.5em;
+}
+
+@media (min-width: 600px) {
+    .thought-form-container form {
+        max-width: 50%;
+    }
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+}
+
+.title-container h2 {
+    border-left: 4px solid #f6982d;
+    padding: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #f6982d;
+    border-radius: 5px;
+    padding: 10px;
+    height: 200px;
+}
+
+.card-actions {
+    float: right;
+    margin-left: 10px;
+    display: inline-flex;
+    gap: 10px;
+}
+
+.card-actions i:hover {
+    cursor: pointer;
+}

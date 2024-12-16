@@ -1,0 +1,19 @@
+<div class="dashboard">
+    <div class="title-container">
+        <h2>Dashboard</h2>
+        <a class="sys-btn" href="/thoughts/add">Create Thought</a>
+    </div>
+    <div class="grid-container">
+        {{#each thoughts}}
+        <div class="card">
+            <h3>
+                <span class="card-actions">
+                    <i class="bi bi-pencil-fill" title="Edit"></i>
+                    <i class="bi bi-x-lg" title="Remove"></i>
+                </span>
+                {{this.title}}
+            </h3>
+        </div>
+        {{/each}}
+    </div>
+</div>
