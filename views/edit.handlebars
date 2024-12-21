@@ -1,0 +1,12 @@
+<div class="thought-form-container">
+    <a href="/thoughts/dashboard">Return</a>
+    <h1>Editing Thought</h1>
+    <form action="/thoughts/edit" method="post">
+    <input type="hidden" name="id" value="{{thought.id}}"/>
+        <div class="form-control">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" placeholder="Type your thought..." maxlength="50" value="{{thought.title}}" required />
+        </div>
+        <button class="sys-btn">Save Thought</button>
+    </form>
+</div>

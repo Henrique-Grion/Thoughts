@@ -1,1 +1,31 @@
-<h1>aaa</h1>
+<div class="home-header">
+    <h1>All thoughts</h1>
+    <form action="/" class="search-form" method="get">
+        <input type="text" name="search" placeholder="Searching for something">
+        <button class="sys-btn">Search</button>
+    </form>
+    <div class="order-container">
+        <span>Ordenar por:</span>
+        <form action="/" method="get">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="new">
+            <button><i class="bi bi-arrow-up"></i></button>
+        </form>
+        <form action="/" method="get">
+            <input type="hidden" name="search" value="{{this.search}}">
+            <input type="hidden" name="order" value="old">
+            <button><i class="bi bi-arrow-down"></i></button>
+        </form>
+        <a href="/">Limpar</a>
+    </div>
+</div>
+<div class="thoughts-container">
+    {{#each thoughts}}
+    <figure>
+        <blockquote>
+            "{{this.title}}"
+        </blockquote>
+        <figcaption>por <span>{{this.User.name}}</span></figcaption>
+    </figure>
+    {{/each}}
+</div>

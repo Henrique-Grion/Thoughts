@@ -2,8 +2,14 @@ const Thought = require('../models/Thought')
 const User = require('../models/User')
 
 module.exports = class ThoughtController {
-    static showThoughts(req, res) {
-        res.render('home')
+    static async showThoughts(req, res) {
+        const thoughtsData = await Thought.findAll({
+            include: User,
+        });
+
+        const thoughts = thoughtsData.map((item) => item.get({ plain: true }));
+
+        res.render('home', { thoughts })
     }
 
     static async dashboard(req, res) {
@@ -72,6 +78,32 @@ module.exports = class ThoughtController {
         } catch (error) {
             res.status(500);
         }
+    }
 
+    static async editThought(req, res) {
+        const id = req.params.id;
+
+        const thought = await Thought.findOne({ where: { id: id }, raw: true });
+
+        console.log(thought)
+
+        res.render('edit', { thought })
+    }
+
+    static async editThoughtSave(req, res) {
+        try {
+            await Thought.update({ title: req.body.title }, { where: { id: req.body.id } })
+
+            req.flash('message', {
+                type: 'success',
+                message: 'Thought updated successfully.'
+            })
+
+            req.session.save(() => {
+                res.redirect('/thoughts/dashboard')
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

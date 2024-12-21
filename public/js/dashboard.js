@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Edit Button
+    // Edit Thought
     document.querySelectorAll('i[data-id="Edit"]').forEach(el => {
         el.addEventListener('click', async () => {
             const id = el.closest('div .card').getAttribute('id');
 
+            window.location.href = `/thoughts/edit/${id}`;
         })
     })
 
-    // Remove Button
+    // Remove Thought
     document.querySelectorAll('i[data-id="Remove"]').forEach(el => {
         el.addEventListener('click', async () => {
             const id = el.closest('div .card').getAttribute('id');

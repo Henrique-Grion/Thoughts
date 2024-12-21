@@ -234,3 +234,125 @@ body {
 .card-actions i:hover {
     cursor: pointer;
 }
+
+.home-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-header h1 {
+    margin-bottom: 1em;
+}
+
+.home-header span {
+    color: #f6982d
+}
+
+.home-header .search-form {
+    margin-bottom: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+}
+
+@media (max-width: 600px) {
+    .home-header .search-form {
+        width: 80vw;
+    }
+}
+
+.home-header input {
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    background-color: transparent;
+    padding: .5em;
+    width: 65%;
+    margin-right: 1em;
+}
+
+.home-header .sys-btn {
+    margin: 0;
+}
+
+.order-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 1em;
+}
+
+.order-container span {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.order-container form {
+    margin: 0;
+}
+
+.order-container button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.order-container a {
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.order-container button:hover,
+.order-container a:hover {
+    color: #f6982d;
+}
+
+.order-container button,
+.order-container a {
+    margin: 0 7px;
+}
+
+.thoughts-container figure {
+    border-bottom: 1px solid #333;
+    padding: .5em;
+    margin: 0 auto 1em;
+}
+
+@media (min-width: 600px) {
+    .thoughts-container figure {
+        width: 60%;
+    }
+}
+
+.thoughts-container blockquote {
+    font-style: italic;
+    font-size: 2em;
+    margin-bottom: 0.4em;
+    word-break: break-all;
+}
+
+.thoughts-container span {
+    color: #f6982d;
+}
+
+@media (min-height: 800px) {
+    .thoughts-container {
+        height: calc(100vh - 419px);
+        overflow: auto;
+    }
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6d6d6d;
+    border-radius: 10px;
+}
