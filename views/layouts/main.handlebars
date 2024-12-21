@@ -46,6 +46,11 @@
     <footer class="footer">
         <p><span>Thoughts</span> &copy; 2024</p>
     </footer>
+    {{#if scripts}}
+        {{#each scripts}}
+            <script src="{{this.src}}"></script>
+        {{/each}}
+    {{/if}}
 </body>
 
 </html>

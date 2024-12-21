@@ -5,11 +5,11 @@
     </div>
     <div class="grid-container">
         {{#each thoughts}}
-        <div class="card">
+        <div class="card" id="{{this.id}}">
             <h3>
                 <span class="card-actions">
-                    <i class="bi bi-pencil-fill" title="Edit"></i>
-                    <i class="bi bi-x-lg" title="Remove"></i>
+                    <i class="bi bi-pencil-fill" title="Edit" data-id="Edit"></i>
+                    <i class="bi bi-x-lg" title="Remove" data-id="Remove"></i>
                 </span>
                 {{this.title}}
             </h3>

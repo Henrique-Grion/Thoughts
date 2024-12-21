@@ -18,7 +18,14 @@ module.exports = class ThoughtController {
 
         const thoughts = user.Thoughts.map((item) => item.dataValues);
 
-        res.render('dashboard', { thoughts })
+        res.render('dashboard', {
+            thoughts,
+            scripts: [
+                {
+                    src: '/js/dashboard.js'
+                }
+            ]
+        })
     }
 
     static createThought(req, res) {
@@ -45,5 +52,26 @@ module.exports = class ThoughtController {
         } catch (error) {
             console.log(error)
         }
+    }
+
+    static async removeThought(req, res) {
+        try {
+            const id = req.params.id
+            const UserId = req.session.userid;
+
+            await Thought.destroy({ where: { id, UserId: UserId } })
+
+            req.flash('message', {
+                type: 'success',
+                message: 'Thought removed successfully.'
+            })
+
+            req.session.save(() => {
+                res.status(200).send({ id: id });
+            })
+        } catch (error) {
+            res.status(500);
+        }
+
     }
 }
