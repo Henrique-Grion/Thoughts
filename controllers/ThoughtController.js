@@ -3,13 +3,21 @@ const User = require('../models/User')
 
 module.exports = class ThoughtController {
     static async showThoughts(req, res) {
+
+        let search = req.query.search ? req.query.search : '';
+
         const thoughtsData = await Thought.findAll({
             include: User,
+            where: {
+                title: { [Op.like]: `%${search}%` }
+            }
         });
 
         const thoughts = thoughtsData.map((item) => item.get({ plain: true }));
 
-        res.render('home', { thoughts })
+        let thoughtsQty = thoughts.length ? thoughts.length : false;
+
+        res.render('home', { thoughts, search, thoughtsQty})
     }
 
     static async dashboard(req, res) {
